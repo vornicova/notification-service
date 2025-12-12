@@ -1,0 +1,15 @@
+services:
+  notification-db:
+    image: postgres:16
+    container_name: notification-db
+    environment:
+      POSTGRES_DB: notification_db
+      POSTGRES_USER: notification_user
+      POSTGRES_PASSWORD: notification_pass
+    ports:
+      - "5433:5432"        # host 5433 -> container 5432
+    volumes:
+      - notification_db_data:/var/lib/postgresql/data
+
+volumes:
+  notification_db_data:
